@@ -1,32 +1,28 @@
 import numpy as np
 
-if __name__ == "__main__":
-
-    # Define parameters
-    data_path = "input"
+def part1(data_path = "input"):
     freq = 0
-
-    # Read and process for the first part
     f = open(data_path, "r")
     for x in f:
         freq += int(x)
+    return freq
 
-    print(f"Final frequency is {freq}")
-
-    # Params for part 2
+def part2(data_path = "input"):
     reached = {0}
-    keep_searching = True
     freq = 0
 
     # Read and process for the second part
-    while keep_searching:
+    while True:
         f = open(data_path, "r")
         for x in f:
             freq += int(x)
             if freq in reached:
-                keep_searching = False
-                break
+                return freq
             else:
                 reached.add(freq)
 
-    print(f"First frequency reached twice is {freq}")
+
+if __name__ == "__main__":
+
+    print(f"Final frequency is {part1()}")
+    print(f"First frequency reached twice is {part2()}")
