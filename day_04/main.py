@@ -2,7 +2,7 @@ from datetime import datetime
 import numpy as np
 
 
-def parse_line(line: str) -> list:
+def parse_line(line: str):
     """
     Return a date of action additional info
     """
@@ -51,6 +51,9 @@ def solution_to_both(data_path="input"):
         all_info[date] = info
         
     # Process times asleep for each guard
+    guard = None
+    date_sleep = None
+    minute_sleep = None
     for date in sorted(all_info.keys()):
         info = all_info[date]
         if type(info) == int:
