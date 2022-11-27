@@ -38,9 +38,7 @@ def print_plane(points) -> None:
     points[:, 1] -= min(points[:, 1])
     
     # Initialize empty plane
-    out = []
-    for i in range((max(points[:, 1]) + 1)):
-        out.append(['.'] * (max(points[:, 0]) + 1))
+    out = [['.'] * (max(points[:, 0]) + 1) for _ in range((max(points[:, 1]) + 1))]
     
     # Add stars
     for i in range(points.shape[0]):
